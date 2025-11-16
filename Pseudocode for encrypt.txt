@@ -8,20 +8,18 @@ While the value of first element is not null
 
 shiftEncrypt(eNode* firstelement, int shiftAmt)
 
-Create currentNode to represent an unencrypted node and 
+Create variable to represent the current unencrypted node and 
 assign to it parameter firstelement
 Create node which is the current encrypted node
-    Initialize this new nodes values to defaults
-While the currentNode is not pointing to null
+While the current unencrypted node is not pointing to null
     Create a variable to hold an encrypted name
-    For each character in the name of the currentNode
-        Shift a character of the currentNode's name by the shift amount
+    For each character in the name of the current unencrypted node
+        Shift a character of the unencrypted node's name by the shift amount
         Assign this shifted result to the encrypted name
-    Copy the full shifted name into the current encrypted node
+    Copy the full encrypted name into the current encrypted node
     Move to next unencrypted node
     If the current unencrypted node is null, exit while loop
-    Create node which is new encrypted node
-        Initialize this new nodes values to defaults
+    Create node which is the new encrypted node
     Prepend new encrypted node to beginning of linked list of encrypted nodes
     Set current encrypted node to this new encrypted node
 Set first encrypted node to current encrypted node
