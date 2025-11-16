@@ -133,6 +133,7 @@ void listAll(eNode* firstelement)
  */
 void shiftEncrypt(eNode* firstelement, int shiftAmt)
 {
+
 }
 
 
@@ -147,7 +148,28 @@ void shiftEncrypt(eNode* firstelement, int shiftAmt)
 	3. All non-alphabetic characters will not be shifted. They will remain the same.
 */
 char shift(char name, int shiftAmt) {
-    return ' ';
+    char encryptedName;
+    // character is uppercase alphabetic
+    if ((65 <= name) && (name <= 90)) {
+        if ((name+shiftAmt) > 90) {
+            encryptedName = ((name+shiftAmt)-90)+64;
+        }
+        else {
+            encryptedName = name + shiftAmt;
+        }
+    }
+    else if ((97 <= name) && (name <= 122)) {
+        if ((name+shiftAmt) > 122) {
+            encryptedName = ((name+shiftAmt)-122)+96;
+        }
+        else {
+            encryptedName = name + shiftAmt;
+        }
+    }
+    else {
+        encryptedName = name;
+    }
+    return encryptedName;
 }
     
 /*----------------------------------------------------------------------------*/
