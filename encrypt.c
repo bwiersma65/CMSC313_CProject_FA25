@@ -137,7 +137,7 @@ void shiftEncrypt(eNode* firstelement, int shiftAmt)
     eNode* currentNode = firstelement;
 
     // create first new node to store encrypted name
-    encryptcurrent = malloc(sizeof(eNode));
+    encryptcurrent = (eNode*)malloc(sizeof(eNode));
     // initialize name field with blank string
     strcpy(encryptcurrent->name, "");
     // initialize next field with NULL
@@ -164,7 +164,7 @@ void shiftEncrypt(eNode* firstelement, int shiftAmt)
         if (currentNode == NULL) break;
 
         // create next node to store encrypted name
-        encryptnew = malloc(sizeof(eNode));
+        encryptnew = (eNode*)malloc(sizeof(eNode));
         // initialize name field with blank string
         strcpy(encryptnew->name, "");
         // initialize next field with NULL
