@@ -1,0 +1,47 @@
+Pseudocode for encrypt.C
+
+listAll(eNode* firstelement)
+
+While the value of first element is not null
+    Print to screen the name of the first element
+    Set the value of first element to the next element
+
+shiftEncrypt(eNode* firstelement, int shiftAmt)
+
+Create currentNode to represent an unencrypted node and 
+assign to it parameter firstelement
+Create node which is the current encrypted node
+    Initialize this new nodes values to defaults
+While the currentNode is not pointing to null
+    Create a variable to hold an encrypted name
+    For each character in the name of the currentNode
+        Shift a character of the currentNode's name by the shift amount
+        Assign this shifted result to the encrypted name
+    Copy the full shifted name into the current encrypted node
+    Move to next unencrypted node
+    If the current unencrypted node is null, exit while loop
+    Create node which is new encrypted node
+        Initialize this new nodes values to defaults
+    Prepend new encrypted node to beginning of linked list of encrypted nodes
+    Set current encrypted node to this new encrypted node
+Set first encrypted node to current encrypted node
+Clear unneeded node variables
+
+shift(char name, int shiftAmt)
+
+Create character to hold encrypted character
+If parameter character is uppercase alpabetic
+    If shifting the parameter character will go beyond alpabetic characters
+        Encrypted character will be parameter offset by shift amount and 
+        wrapped back around to alphabetic characters
+    Else
+        Encrypted character will be parameter offset by shift amount
+Else if parameter character is lowercase alphabetic
+    If shifting the parameter character will go beyond alpabetic characters
+        Encrypted character will be parameter offset by shift amount and 
+        wrapped back around to alphabetic characters
+    Else
+        Encrypted character will be parameter offset by shift amount
+Else if not alphabetic character
+    Do not offset parameter character
+Return character
