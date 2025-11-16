@@ -133,7 +133,54 @@ void listAll(eNode* firstelement)
  */
 void shiftEncrypt(eNode* firstelement, int shiftAmt)
 {
+    // set current unencrypted node to parameter
+    eNode* currentNode = firstelement;
 
+    // create first new node to store encrypted name
+    encryptcurrent = malloc(sizeof(eNode));
+    // initialize name field with blank string
+    strcpy(encryptcurrent->name, "");
+    // initialize next field with NULL
+    encryptcurrent->next = NULL;
+
+
+    // loop until every unencrypted node has been processed
+    while (currentNode != NULL) {
+        char encryptedResult[100];
+        int nameIndex = 0;
+        // Traverse c-string name of current unencrypted node and shift each character by shiftAmt
+        // Store result in c-string
+        for (int i=0; i < strlen(currentNode->name); i++) {
+            char encryptedChar = shift(currentNode->name[i], shiftAmt);
+            encryptedResult[nameIndex] = encryptedChar;
+            nameIndex++;
+            encryptedResult[nameIndex] = '\0';
+        }
+        // Copy result into encrypted node's name field
+        strcpy(encryptcurrent->name, encryptedResult);
+        // Traverse to next unencrypted node in linked list
+        currentNode = currentNode->next;
+
+        if (currentNode == NULL) break;
+
+        // create next node to store encrypted name
+        encryptnew = malloc(sizeof(eNode));
+        // initialize name field with blank string
+        strcpy(encryptnew->name, "");
+        // initialize next field with NULL
+        encryptnew->next = NULL;
+
+        // Append new node to beginning of linked list of encrypted nodes
+        encryptnew->next = encryptcurrent;
+        // Set current to new node
+        encryptcurrent = encryptnew;
+    }
+    // After breaking loop, encryptcurrent will be the firstmost node in encrypted linked list
+    encryptfirst = encryptcurrent;
+    // Clear variables
+    currentNode = NULL;
+    encryptcurrent = NULL;
+    encryptnew = NULL;
 }
 
 
