@@ -170,7 +170,7 @@ void shiftEncrypt(eNode* firstelement, int shiftAmt)
         // initialize next field with NULL
         encryptnew->next = NULL;
 
-        // Append new node to beginning of linked list of encrypted nodes
+        // Prepend new node to beginning of linked list of encrypted nodes
         encryptnew->next = encryptcurrent;
         // Set current to new node
         encryptcurrent = encryptnew;
