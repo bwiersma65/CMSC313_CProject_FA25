@@ -115,6 +115,10 @@ void deleteList(eNode* first)
 
 void listAll(eNode* firstelement)
 {
+    while (firstelement != NULL) {
+        printf("%s\n", firstelement->name);
+        firstelement = firstelement->next;
+    }
 }
 
 
